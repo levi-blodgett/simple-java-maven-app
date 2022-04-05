@@ -1,7 +1,7 @@
 pipeline {
 	agent {
 		kubernetes {
-                	label 'mavenpod'
+                	inheritFrom 'mavenpod'
                 	yamlFile 'jenkins/maven-pod.yaml'
                 }
         }
