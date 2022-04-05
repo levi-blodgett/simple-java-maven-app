@@ -1,17 +1,19 @@
 pipeline {
-	agent {
-		kubernetes {
-                	inheritFrom 'mavenpod'
-                	yamlFile 'jenkins/maven-pod.yaml'
-                }
+    agent none
+    stages {
+        stage('Deploy') {
+            steps {
+                 agent {
+                     kubernetes {
+                         label 'mavenpod'
+                         yamlFile 'jenkins/maven-pod.yaml'
+                       }
+                   }
+                   container('maven') {
+                   sh "mvn -B clean deploy"
+                 }
+            }
         }
-	stages {
-		stage('Deploy'){
-			steps {
-				container('maven') {
-				        sh "mvn -B clean deploy"
-        			}
-			}
-		}
-	}
+    }
 }
+
