@@ -10,7 +10,7 @@ pipeline {
                        }
                    }
                    container('maven') {
-                   sh "mvn -B clean deploy"
+                   sh "mvn -B clean release"
                  }
             }
         }
