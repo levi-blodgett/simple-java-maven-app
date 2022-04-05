@@ -10,17 +10,17 @@
   <distributionManagement>
     <snapshotRepository>
       <id>artifact-registry</id>
-      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
+      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven</url>
     </snapshotRepository>
     <repository>
       <id>artifact-registry</id>
-      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
+      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven</url>
     </repository>
   </distributionManagement>
   <repositories>
     <repository>
       <id>artifact-registry</id>
-      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
+      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven</url>
       <releases>
         <enabled>true</enabled>
       </releases>
