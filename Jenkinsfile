@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Deploy') {
             steps {
-                 agent {
+                 node {
                      kubernetes {
                          label 'mavenpod'
                          yamlFile 'jenkins/maven-pod.yaml'
