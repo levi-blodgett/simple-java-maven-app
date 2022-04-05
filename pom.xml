@@ -7,6 +7,28 @@
   <version>1.0-SNAPSHOT</version>
   <name>my-app</name>
   <url>http://maven.apache.org</url>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>artifact-registry</id>
+      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
+    </snapshotRepository>
+    <repository>
+      <id>artifact-registry</id>
+      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
+    </repository>
+  </distributionManagement>
+  <repositories>
+    <repository>
+      <id>artifact-registry</id>
+      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -19,6 +41,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <build>
+    <extensions>
+      <extension>
+        <groupId>com.google.cloud.artifactregistry</groupId>
+        <artifactId>artifactregistry-maven-wagon</artifactId>
+        <version>2.1.0</version>
+      </extension>
+    </extensions>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -65,40 +94,5 @@
         </executions>
       </plugin>
     </plugins>
-  </build>
-</project>
-<project>
-  <distributionManagement>
-    <snapshotRepository>
-      <id>artifact-registry</id>
-      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
-    </snapshotRepository>
-    <repository>
-      <id>artifact-registry</id>
-      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
-    </repository>
-  </distributionManagement>
-
-  <repositories>
-    <repository>
-      <id>artifact-registry</id>
-      <url>artifactregistry://us-east1-maven.pkg.dev/adt-demo-345918/maven-app</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <build>
-    <extensions>
-      <extension>
-        <groupId>com.google.cloud.artifactregistry</groupId>
-        <artifactId>artifactregistry-maven-wagon</artifactId>
-        <version>2.1.0</version>
-      </extension>
-    </extensions>
   </build>
 </project>
